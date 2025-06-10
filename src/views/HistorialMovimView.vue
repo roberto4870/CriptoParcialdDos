@@ -21,11 +21,14 @@ async function cargarMovimientos() {
     alert('Error cargando movimientos');
   }
 }
+// Función para mostrar el nombre del cliente, si no lo encuentra devuelve "N/A"
+
 function getNombreCliente(clienteId) {
   const cliente = clientes.value.find(c => c.id === clienteId);
   return cliente ? cliente.name : 'N/A';
 }
 
+// Función para mostrar fecha legible, o "Invalid Date" si no es válida
 function formatoFecha(fechaISO) {
   const fecha = new Date(fechaISO);
   return isNaN(fecha) ? 'Fecha inválida' : fecha.toLocaleString();
@@ -37,10 +40,9 @@ onMounted(async () => {
   console.log('Movimientos:', JSON.stringify(movimientos.value, null, 2));
 });
 
-// Función para mostrar el nombre del cliente, si no lo encuentra devuelve "N/A"
 
 
-// Función para mostrar fecha legible, o "Invalid Date" si no es válida
+
 
 </script>
 
