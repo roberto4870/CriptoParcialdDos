@@ -34,9 +34,16 @@ async function enviarCliente() {
 </script>
 
 <template>
+
+  <h1>Alta Cliente</h1>
+  <br/>
   <nav style="margin-bottom: 20px;">
-    <router-link to="/alta-compra" style="margin-right: 15px;">🛒 Alta Compra</router-link>
+    <router-link to="/alta-compra" style="margin-right: 15px;">🛒 Alta Compra/Venta</router-link>
+    <br/>
     <router-link to="/historial-movimiento" style="margin-right: 15px;">📜 Ver Historial</router-link>
+    <br/>
+    <router-link to="/listado-clientes" style="margin-right: 15px;">📜 Listado Clientes</router-link>
+
   </nav>
 
   <Form :validation-schema="schema" @submit="enviarCliente">
@@ -47,7 +54,7 @@ async function enviarCliente() {
     <ErrorMessage name="name" />
 
     <br />
-
+    
     <label>
       Email:
       <Field v-model="nuevoCliente.email" type="email" name="email" />
