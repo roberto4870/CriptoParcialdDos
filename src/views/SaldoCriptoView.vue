@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue';
+import { criptosDisponibles } from '@/Constants/Criptos'
 
 const clientes = ref([]);
 const saldos = ref([]);
@@ -52,10 +53,11 @@ onMounted(() => cargarClientes());
       </tr>
     </thead>
     <tbody>
-      <tr v-for="s in saldos" :key="s.cryptoCode">
+      <tr v-for="s in saldos.filter(s => criptosDisponibles.includes(s.cryptoCode))" :key="s.cryptoCode">
         <td>{{ s.cryptoCode.toUpperCase() }}</td>
         <td>{{ s.total }}</td>
       </tr>
     </tbody>
+
   </table>
 </template>

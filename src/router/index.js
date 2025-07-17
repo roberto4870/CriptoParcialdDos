@@ -8,6 +8,7 @@ import VerTransaccionView from '../views/VerTransaccionView.vue';
 import EditarTransaccionView from '../views/EditarTransaccionView.vue';
 import ListadoClientesView from '../views/ListadoClientesView.vue';
 import EditarClienteView from '../views/EditarClienteView.vue';
+import OpcionExchangeView from '../views/OpcionExchangeView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -54,6 +55,10 @@ const router = createRouter({
     { path: '/editar-cliente/:id',
       name: 'editar-cliente',
       component: EditarClienteView 
+    },
+    { path: '/opcion-exchange', 
+      name: 'opcionexchange', 
+      component: OpcionExchangeView 
     }
 
   ],

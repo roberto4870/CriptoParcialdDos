@@ -1,8 +1,24 @@
 
 
+<script setup>
+import { useRoute } from 'vue-router'
+const route = useRoute()
+</script>
+
 <template>
-  <RouterView></RouterView>
+  <RouterView />
+
+  <!-- Mostrar solo si la ruta actual NO es alguna de estas -->
+  <router-link
+    class="nav-link"
+    to="/opcion-exchange"
+    v-if="!['alta-cliente', 'opcionexchange', 'listado-clientes','ver-transaccion','editar-cliente'].includes(route.name)"
+  >
+    Consultar cotizaciones
+  </router-link>
 </template>
+
+
 
 <style>
 body {

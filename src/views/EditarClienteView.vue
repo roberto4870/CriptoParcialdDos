@@ -44,7 +44,7 @@ async function actualizarCliente() {
 <template>
   
   <router-link to="/listado-clientes">
-    <button style="margin-bottom: 20px;">🔙 Volver al listado</button>
+    <button style="margin-bottom: 20px;">Volver al listado</button>
   </router-link>
      <br/>
   <h2>Editar Cliente</h2>

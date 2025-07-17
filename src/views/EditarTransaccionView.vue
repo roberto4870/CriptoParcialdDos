@@ -18,6 +18,11 @@ onMounted(async () => {
 });
 
 async function actualizarMonto() {
+  if (nuevoMonto.value <= 0) {
+    alert('El monto debe ser mayor a 0');
+    return;
+  }
+
   const res = await fetch(`https://localhost:7191/api/transaction/${transaccion.value.id}`, {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
@@ -37,18 +42,26 @@ async function actualizarMonto() {
 <template>
   <div v-if="transaccion">
     <router-link to="/historial-movimiento">
-      <button style="margin-bottom: 20px;">🔙 Volver al Historial</button>
+      <button style="margin-bottom: 20px;">Volver al Historial</button>
     </router-link>
 
     <h1>Editar Monto</h1>
+
     <p><strong>ID:</strong> {{ transaccion.id }}</p>
     <p><strong>Criptomoneda:</strong> {{ transaccion.cryptoCode }}</p>
     <p><strong>Acción:</strong> {{ transaccion.action }}</p>
+    <p><strong>Monto actual:</strong> {{ transaccion.money.toLocaleString('es-AR', { style: 'currency', currency: 'ARS' }) }}</p>
+
     <label>
-      Monto ARS:
-      <input v-model="nuevoMonto" type="number" step="0.01" />
+      Nuevo monto ARS:
+      <input v-model.number="nuevoMonto" type="number" step="0.01" min="0.01" />
     </label>
+
     <br />
-    <button @click="actualizarMonto">Guardar</button>
+
+    <button @click="actualizarMonto" :disabled="nuevoMonto === transaccion.money || nuevoMonto <= 0">
+      Guardar
+    </button>
   </div>
 </template>
+

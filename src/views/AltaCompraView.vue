@@ -1,7 +1,10 @@
 <script setup>
+import { criptosDisponibles } from '@/Constants/Criptos'
+
 import { ref, onMounted } from 'vue';
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import * as yup from 'yup';
+
 
 const schema = yup.object({
   clienteId: yup.number().required('El cliente es obligatorio'),
@@ -106,11 +109,12 @@ async function enviarDatosApi() {
       Criptomoneda:
       <Field as="select" v-model="datosCompra.cryptoCode" name="cryptoCode">
         <option value="" disabled>Seleccione una criptomoneda</option>
-        <option value="btc">Bitcoin (BTC)</option>
-        <option value="eth">Ethereum (ETH)</option>
-        <option value="usdc">USDC</option>
+        <option v-for="cripto in criptosDisponibles" :key="cripto" :value="cripto">
+          {{ cripto.toUpperCase() }}
+        </option>
       </Field>
     </label>
+
     <ErrorMessage name="cryptoCode" />
 
     <br/>
