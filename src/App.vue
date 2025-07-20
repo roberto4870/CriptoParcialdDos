@@ -8,7 +8,7 @@ const route = useRoute()
 <template>
   <RouterView />
 
-  <!-- Mostrar solo si la ruta actual NO es alguna de estas -->
+  <!-- Para mostrar solo si la ruta actual NO es alguna de estas -->
   <router-link
     class="nav-link"
     to="/opcion-exchange"
@@ -24,41 +24,46 @@ const route = useRoute()
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
-  color: #333;
+  background: linear-gradient(135deg, #0f172a, #1e3a8a); 
+  color: #f1f5f9;
 }
 
+/* Navegación */
 nav {
-  background: linear-gradient(90deg, #e3edf7, #cfd9df);
+  background: linear-gradient(90deg, #1e3a8a, #0f172a);
   padding: 10px 15px;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 nav a {
   text-decoration: none;
-  color: #0077cc;
+  color: #93c5fd;
   font-weight: bold;
   margin-right: 20px;
 }
 
 nav a:hover {
-  color: #005fa3;
+  color: #bfdbfe;
   text-decoration: underline;
 }
 
+/* Títulos */
 h1 {
-  color: #222;
+  color: #f1f5f9;
   text-align: center;
   margin-bottom: 20px;
 }
 
-form, table {
-  background: #ffffff;
+/* Formularios y tablas */
+form,
+table {
+  background: #111827;
+  color: #e0e0e0;
   border-radius: 10px;
   padding: 20px;
   margin: auto;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
   max-width: 800px;
 }
 
@@ -67,19 +72,39 @@ table {
   width: 100%;
 }
 
-th, td {
+th {
+  background-color: #1f2937; 
+  color: #e5e7eb;
+}
+
+td {
+  background-color: #1a202c;
+  color: #d1d5db;
+  border-bottom: 1px solid #2d3748;
   padding: 10px 15px;
   text-align: center;
-  border-bottom: 1px solid #e0e0e0;
 }
 
-th {
-  background-color: #f7fafc;
-  color: #444;
+/* Inputs y selects */
+input[type="text"],
+input[type="number"],
+input[type="datetime-local"],
+select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  background-color: #2d3748;
+  color: #f7fafc;
+  border: 1px solid #4a5568;
+  border-radius: 6px;
+  box-sizing: border-box;
 }
 
-input[type="submit"] {
-  background-color: #0077cc;
+/* Botones */
+input[type="submit"],
+button {
+  background-color: #2563eb; 
   color: white;
   padding: 10px 20px;
   border: none;
@@ -89,32 +114,24 @@ input[type="submit"] {
   margin-top: 10px;
 }
 
-input[type="submit"]:hover {
-  background-color: #005fa3;
+input[type="submit"]:hover,
+button:hover {
+  background-color: #1d4ed8;
 }
 
+/* Labels */
 label {
   display: block;
   margin-bottom: 10px;
   font-weight: bold;
+  color: #e2e8f0;
 }
 
-input[type="text"],
-input[type="number"],
-input[type="datetime-local"],
-select {
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  box-sizing: border-box;
-}
-
+/* Mensajes de error */
 .error-message {
-  color: red;
+  color: #f87171;
   font-size: 14px;
 }
 </style>
+
 

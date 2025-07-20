@@ -13,10 +13,14 @@ import OpcionExchangeView from '../views/OpcionExchangeView.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    {
+    /*{
       path: '/',
       name: 'home',
       component: HomeView,
+    },*/
+    {
+      path: '/',
+      redirect: '/alta-cliente'
     },
     {
       path: '/alta-compra',
